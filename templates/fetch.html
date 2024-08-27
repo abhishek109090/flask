@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 70%;
+            border: 1px;
+           
+        }
+        table,th,td{
+            padding: 10px;
+            border-style:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>
+                id
+            </th>
+            <th>
+                phone
+            </th>
+            <th>password</th>
+            <th>email</th>
+            <th>action</th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td>{{row[0]}}</td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+
+        <td>
+        <form method=" POST " action="{{url_for('deleteuser',id=row[0])}}">
+            <input type="submit" value="delete">
+        </form>
+    </td>
+    </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
